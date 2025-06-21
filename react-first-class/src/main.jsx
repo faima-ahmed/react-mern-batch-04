@@ -1,5 +1,23 @@
-import { render } from 'preact'
-import './index.css'
-import { App } from './app.jsx'
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
 
-render(<App />, document.getElementById('app'))
+createRoot(document.getElementById("root")).render(<App />);
+
+{
+  /* <App /> */
+}
+
+// react Dom  -> Main DOM -> React Code / Component
+
+// 'use strict'
+
+// export default function addAbc(a, b) {
+// 	return a + b;
+// }
+
+// // import
+
+// export const add = (a, b) => {
+// 	return a + b;
+// };

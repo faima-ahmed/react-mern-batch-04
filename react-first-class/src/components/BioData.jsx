@@ -1,17 +1,13 @@
-import BioData from "./components/BioData";
-
-const App = () => {
-  return (
-    <>
-      <div className="bio-data">
-        <h2>BioData of Faima Ahmed</h2>
-        <hr />
+const BioData = () => {
+    return (
+        <div className="bio-data">
+        <h2>BioData of Khalid Hossain</h2>
+        <hr/>
         <div className="personal-info">
-          <p>Phone: +882835672852</p>
-          <p>
-            Email: <a href="#">faimaahmed@gmail.com</a>
-          </p>
-          <p>LinkedId: linked/In/faimaahmed</p>
+          <p>Phone: +88274937722</p>
+          <p>Email: <a href="#">khalidhossain@gmail.com</a></p>
+          <p>LinkedId: linked/In/KH</p>
+
         </div>
         <div className="skills">
           <h3>My skills</h3>
@@ -19,6 +15,8 @@ const App = () => {
             <li>React</li>
             <li>JS</li>
             <li>Node</li>
+            <li>WP</li>
+            <li>PHP</li>
           </ul>
         </div>
         <div className="interests">
@@ -27,14 +25,12 @@ const App = () => {
             <li>Chess</li>
             <li>Football</li>
             <li>Coading</li>
+            <li>TT</li>
+            <li>Traveling</li>
           </ul>
         </div>
       </div>
-      <hr />
-      <br />
-      <BioData />
-    </>
-  );
+    );
 };
 
-export default App;
+export default BioData;
