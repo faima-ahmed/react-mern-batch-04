@@ -1,33 +1,37 @@
 import getNextTodoId from "../utils/getNextTodoId";
 
-export default function todosReducer(todos, action) {
+export default function todosReducer(draftTodos, action) {
   switch (action.type) {
-    case "change":
-        
-        
-        return todos.map((t) => {
-        if (t.id === action.todo.id) {
-          return {
-            ...t,
-            title: action.todo.title,
-            done: action.todo.done,
-          };
+
+    case "change": {
+            const index = draftTodos.findIndex((t) => t.id === action.todo.id);
+            draftTodos[index] = action.todo;
+
+            break;
         }
-        return t;
-      });
+
+    // case "change":
+    //     return todos.map((t) => {
+    //     if (t.id === action.todo.id) {
+    //       return {
+    //         ...t,
+    //         title: action.todo.title,
+    //         done: action.todo.done,
+    //       };
+    //     }
+    //     return t;
+    //   });
       
-    case "add":
-      return [
-              ...todos,
-              {
-                 id: getNextTodoId(todos),
-                 title: action.title,
-                 done:false,
-              },
-           ];
+     case "add":
+            draftTodos.push({
+                id: getNextTodoId(draftTodos),
+                title: action.title,
+                done: false,
+            });
+            break;
 
     case "delete":
-     return todos.filter(todo => todo.id !== action.id)
+     return draftTodos.filter(todo => todo.id !== action.id)
 
     default: throw new Error ("no matching actions");
       

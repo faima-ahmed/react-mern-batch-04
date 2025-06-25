@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useImmerReducer } from "use-immer";
 import "./App.css";
 import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
@@ -6,7 +6,7 @@ import initialTodos from "./data/initialTodos";
 import todosReducer from "./reducers/todosReducer";
 
 function App() {
-  const [todos, dispatch] = useReducer(todosReducer, initialTodos);
+  const [todos, dispatch] = useImmerReducer(todosReducer, initialTodos);
 
   const handleChangeTodo = (todo) => {
     dispatch({
