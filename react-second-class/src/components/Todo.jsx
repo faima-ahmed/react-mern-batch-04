@@ -1,6 +1,8 @@
 import TodoContent from "./TodoContent";
+import  { useTodo } from "../context/TodoContext";
 
-export default function Todo({ todo, onChangeTodo, onDeleteTodo }) {
+export default function Todo({ todo }) {
+  const { onChangeTodo, onDeleteTodo } = useTodo();
   return (
     <>
       <input
@@ -15,7 +17,7 @@ export default function Todo({ todo, onChangeTodo, onDeleteTodo }) {
         }
       />
 
-      <TodoContent todo={todo} onChangeTodo={onChangeTodo}/>
+      <TodoContent todo={todo} />
 
       <button onClick={() => onDeleteTodo(todo.id)}>Delete</button>
     </>

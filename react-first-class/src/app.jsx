@@ -1,38 +1,21 @@
-import BioData from "./components/BioData";
+import { useState } from "react";
 
 const App = () => {
+  const [posts, setPosts] = useState([]);
+
+  fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5`)
+    .then((res) => res.json())
+    .then((data) => {
+      setPosts(data);
+    });
   return (
     <>
-      <div className="bio-data">
-        <h2>BioData of Faima Ahmed</h2>
-        <hr />
-        <div className="personal-info">
-          <p>Phone: +882835672852</p>
-          <p>
-            Email: <a href="#">faimaahmed@gmail.com</a>
-          </p>
-          <p>LinkedId: linked/In/faimaahmed</p>
-        </div>
-        <div className="skills">
-          <h3>My skills</h3>
-          <ul>
-            <li>React</li>
-            <li>JS</li>
-            <li>Node</li>
-          </ul>
-        </div>
-        <div className="interests">
-          <h3>My Interests</h3>
-          <ul>
-            <li>Chess</li>
-            <li>Football</li>
-            <li>Coading</li>
-          </ul>
-        </div>
-      </div>
-      <hr />
-      <br />
-      <BioData />
+      <h2>Post List</h2>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
     </>
   );
 };
