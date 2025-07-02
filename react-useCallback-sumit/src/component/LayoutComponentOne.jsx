@@ -1,11 +1,13 @@
-import React from 'react';
+import useScreenSize from "../hooks/useScreenSize";
 
 const LayoutComponentOne = () => {
-    return (
-        <div>
-            <h1>Layout one</h1>
-        </div>
-    );
+  const onSmallDevice = useScreenSize();
+
+  return (
+    <div>
+      <h1 id="heading">I am on {onSmallDevice ? "small" : "big"} display</h1>
+    </div>
+  );
 };
 
 export default LayoutComponentOne;

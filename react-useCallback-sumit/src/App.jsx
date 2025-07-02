@@ -18,8 +18,9 @@ function App() {
   }, []);
 
   const isEven = useMemo(() => {
-    let i = 0;
-    while (i <= 1000000000) i += 1;
+    //costly operation
+    // let i = 0;
+    // while (i <= 1000000000) i += 1;
 
     return count1 % 2 === 0;
   }, [count1]);
@@ -39,6 +40,7 @@ function App() {
       <hr/>
       <LayoutComponentOne/>
       <LayoutComponentTow/>
+     
     </div>
   );
 }
