@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Nav from "../components/Nav";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -41,6 +42,7 @@ const App = () => {
   };
   return (
     <>
+      <Nav />
       <form onSubmit={submitHandler}>
         <input
           type="text"
@@ -50,12 +52,12 @@ const App = () => {
         <button type="submit">Add Todo</button>
       </form>
       {/* <hr /> */}
-      <h2>Add Todos</h2>
+      <h2 className="text-success">Add Todos</h2>
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
             <span>{todo.title}</span>
-            <button onClick={()=> removeHandler(todo.id)}>Remove Todo</button>
+            <button onClick={() => removeHandler(todo.id)}>Remove Todo</button>
           </li>
         ))}
       </ul>
